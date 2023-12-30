@@ -1,0 +1,38 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Absence {
+  id         String @id
+  subject    String
+  grade      String
+  class      Int
+  className  String
+  attendance Int
+  date       String
+  time       String
+  teacher User @relation(fields: [teacherId], references: [id])
+  teacherId  String
+
+  @@index([teacherId])
+}
+
+model User {
+  id       String    @id
+  name     String
+  email    String    @unique
+  password String
+  role     User_role @default(USER)
+  absence Absence[]
+}
+
+enum User_role {
+  USER
+  ADMIN
+}
