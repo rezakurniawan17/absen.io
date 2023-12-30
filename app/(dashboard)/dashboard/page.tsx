@@ -22,10 +22,7 @@ export default async function DashboardPage() {
 
   return (
     <DashboardShell>
-      <DashboardHeader
-        heading="Absence"
-        text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi, deleniti."
-      >
+      <DashboardHeader heading="Absence" text="All absences">
         <AbsenceCreateButton />
       </DashboardHeader>
       <DataTable columns={columns} data={absences} />

@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function AbsenceCreateButton() {
   return (
     <Link href="/dashboard/add">
-      <Button>
+      <Button variant={"default"} size={"sm"}>
         <Icons.add className="mr-2" />
         Add Abscence
       </Button>
